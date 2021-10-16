@@ -1,0 +1,12 @@
+<%= form_with(model: board) do |form| %>
+  <div class="field">
+    <%= form.label :board_number %>
+    <%= form.text_field :board_number %>
+    <%= form.label :board_seats %>
+    <%= form.text_field :board_seats %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

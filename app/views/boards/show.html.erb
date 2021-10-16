@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Board number:</strong>
+  <%= @board.board_number %>
+</p>
+<p>
+  <strong>Total seats: </strong>
+    <%= @board.board_seats %>
+</p>
+
+<%= link_to 'Edit', edit_board_path(@board) %> |
+<%= link_to 'Back', boards_path %>
