@@ -16,14 +16,13 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(board_params)
 
-    respond_to do |format|
       if @board.save
-        format.html { redirect_to @board, notice: 'Board was successfully created.' }
-        format.json { render :show, status: :created, location: @board }
+        flash[:success] = 'Board was successfully created.'
+        redirect_to @board, success: 'Board was successfully created.'
+        # format.html { redirect_to @board, notice: 'Board was successfully created.' }
+        # format.json { render :show, status: :created, location: @board }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @board.errors, status: :unprocessable_entity }
-      end
+        render new
     end
   end
 

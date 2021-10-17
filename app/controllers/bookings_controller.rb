@@ -9,21 +9,22 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    # @board = Board.find(params[:board_id])
+    @board = Board.find(params[:board_id])
   end
 
   def edit; end
 
   def create
     @booking = Booking.new(booking_params)
+    @board = Board.find(params[:board_id])
+
 
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @booking }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
+        format.html { redirect_to new_board_booking_path }
+        # flash[:error] = "<h1>ERROR</h1>"
       end
     end
   end
@@ -31,7 +32,7 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to bookings_path, notice: 'Booking was successfully updated.' }
+        format.html { redirect_to board_bookings_path, notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -43,7 +44,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully deleted.' }
+      format.html { redirect_to board_bookings_url, notice: 'Booking was successfully deleted.' }
       format.json { head :no_content }
     end
   end
