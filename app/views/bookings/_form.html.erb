@@ -1,13 +1,13 @@
-<%= form_with(model: booking) do |form| %>
+<%= form_with(model: [@board, @booking.becomes(Booking)]) do |form| %>
   <div class="field">
     <%= form.label :booked_table %>
     <%= form.collection_select :board_id, Board.all, :id, :board_number, {}, { multiple: false } %>
     <%= form.label :booked_by %>
     <%= form.text_field :booked_by %>
     <%= form.label :start_time%>
-    <%= form.datetime_field :start_time%>
+    <%= form.datetime_field :start_time, selected: Date.today, min: 0.days.ago, max: 1.year.from_now%>
     <%= form.label :end_time %>
-    <%= form.datetime_field :end_time%>
+    <%= form.datetime_field :end_time, selected: Date.today, min: 0.days.ago, max: 1.year.from_now%>
   </div>
 
 
