@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
+        BookingMailer.with(booking: @booking).booking_created.deliver_later
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
         @board.booked = true
@@ -59,6 +60,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:board_id, :booked_by, :booking_time)
+    params.require(:booking).permit(:board_id, :booked_by, :booking_time, :email)
   end
 end
