@@ -1,0 +1,9 @@
+<h1>You have booked a table</h1>
+
+<%= @booking.booked_by %> have booked a table for <%= @booking.booking_time %>. Thank you for that.
+<p>
+  You can show this QR code to our waiter when you will come to our restaurant:
+</p>
+<p>
+  <%= image_tag attachments['qr_booking.jpeg'].url, alt: 'QR', width: 100 %>
+</p>
