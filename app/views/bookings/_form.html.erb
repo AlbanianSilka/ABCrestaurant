@@ -5,8 +5,10 @@
     <%= form.label :booked_by %>
     <%= form.text_field :booked_by %>
     <%= form.label :booking_time%>
-    <% daytime = DaytimeService.new(@booking).create_workday(12, 22) %>
+    <% daytime = DaytimeService.new(@booking).create_workday(10, 22) %>
     <%= form.collection_select :booking_time, daytime, :to_s, :to_s, include_blank: false %>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
   </div>
 
 
