@@ -19,14 +19,14 @@ ActiveRecord::Schema.define(version: 2021_10_16_194451) do
     t.string "board_number"
     t.integer "board_seats"
     t.string "board_bookings"
+    t.boolean "booked", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "bookings", force: :cascade do |t|
     t.string "booked_by"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.string "booking_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "board_id"

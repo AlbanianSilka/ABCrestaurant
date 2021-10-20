@@ -1,13 +1,12 @@
-<%= form_with(model: booking) do |form| %>
+<%= form_with(model: [@board, @booking.becomes(Booking)]) do |form| %>
   <div class="field">
     <%= form.label :booked_table %>
     <%= form.collection_select :board_id, Board.all, :id, :board_number, {}, { multiple: false } %>
     <%= form.label :booked_by %>
     <%= form.text_field :booked_by %>
-    <%= form.label :start_time%>
-    <%= form.datetime_field :start_time%>
-    <%= form.label :end_time %>
-    <%= form.datetime_field :end_time%>
+    <%= form.label :booking_time%>
+    <% daytime = DaytimeService.new(@booking).create_workday(12, 22) %>
+    <%= form.collection_select :booking_time, daytime, :to_s, :to_s, include_blank: false %>
   </div>
 
 

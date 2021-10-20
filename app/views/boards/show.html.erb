@@ -9,5 +9,16 @@
     <%= @board.board_seats %>
 </p>
 
+<% if @board.booked == true %>
+  <p>
+    <strong>All bookings: </strong>
+    <% @board.bookings.each do |x| %>
+    <li><%= "Starts at #{x.booking_time}" %></li>
+  <% end %>
+  </p>
+<% else %>
+  <%= link_to 'Book a table', new_board_booking_path(@board) %>
+<% end %>
+
 <%= link_to 'Edit', edit_board_path(@board) %> |
 <%= link_to 'Back', boards_path %>
