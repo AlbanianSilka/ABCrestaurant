@@ -10,12 +10,8 @@
 </p>
 <p>
   <strong>Start time: </strong>
-  <%= @booking.start_time %>
-</p>
-<p>
-  <strong>End time: </strong>
-  <%= @booking.end_time %>
+  <%= @booking.booking_time %>
 </p>
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+<%= link_to 'Back', boards_path %>
