@@ -4,10 +4,17 @@
     <%= form.collection_select :board_id, Board.all, :id, :board_number, {}, { multiple: false } %>
     <%= form.label :booked_by %>
     <%= form.text_field :booked_by %>
-    <%= form.label :start_time%>
-    <%= form.datetime_field :start_time, selected: Date.today, min: 0.days.ago, max: 1.year.from_now%>
-    <%= form.label :end_time %>
-    <%= form.datetime_field :end_time, selected: Date.today, min: 0.days.ago, max: 1.year.from_now%>
+    <script>
+      var index = $('#booking_booking_time').get(0).selectedIndex;
+      $('#booking_booking_time option:eq(' + index + ')').remove();
+    </script>
+    <%= form.label :booking_time%>
+    <% x = %w[12:00 12:15 12:30 12:45 13:00 13:15 13:30 13:45 14:00 14:15 14:30 14:45 15:00 15:15 15:30 15:45 16:00
+     16:15 16:30 16:45 17:00 17:15 17:30 17:45 18:00 18:15 18:30 18:45 19:00 19:15 19:30 19:45 20:00 20:15 20:30 20:45] %>
+    <%= form.collection_select :booking_time, x, :to_s, :to_s, include_blank: false %>
+    <%#= form.datetime_field :start_time, selected: Date.today, min: 0.days.ago, max: 1.year.from_now%>
+    <%#= form.label :end_time %>
+    <%#= form.datetime_field :end_time, selected: Date.today, min: 0.days.ago, max: 1.year.from_now%>
   </div>
 
 

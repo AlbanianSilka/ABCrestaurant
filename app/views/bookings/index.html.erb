@@ -18,8 +18,7 @@
     <tr>
       <td><%= booking.board_id %></td>
       <td><%= booking.booked_by %></td>
-      <td><%= booking.start_time %></td>
-      <td><%= booking.end_time %></td>
+      <td><%= booking.booking_time %></td>
       <td><%= link_to 'Show', booking %></td>
       <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
       <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
