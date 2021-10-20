@@ -21,7 +21,10 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
+        BookingJob.set(wait_until: @booking.created_at < 24.hours.ago).perform_later(@booking)
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        @board.booked = true
+        @board.save
       else
         format.html { redirect_to new_board_booking_path }
         # flash[:error] = "<h1>ERROR</h1>"
@@ -56,6 +59,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:board_id, :booked_by, :start_time, :end_time)
+    params.require(:booking).permit(:board_id, :booked_by, :booking_time)
   end
 end
