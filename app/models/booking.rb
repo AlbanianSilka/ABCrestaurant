@@ -5,6 +5,7 @@ class Booking < ActiveRecord::Base
 
   private
 
+  # method to delete booking after 24 hours after it was created
   def delete_old_booking
     self.class.destroy(id)
   end
