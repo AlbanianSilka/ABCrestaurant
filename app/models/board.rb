@@ -7,6 +7,8 @@ class Board < ActiveRecord::Base
 
   private
 
+
+  # set table booking status to false if there is no bookings
   def check_booking
     if self.bookings.length == 0
       self.booked = false
