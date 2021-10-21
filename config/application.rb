@@ -34,5 +34,11 @@ module ABCrestaurant
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.assets.paths << Rails.root.join('app', 'assets', 'hero-images')
+
+    Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
+      config.assets.paths << path
+    end
   end
 end
