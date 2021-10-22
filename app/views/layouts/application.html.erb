@@ -10,6 +10,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header class="abc_header">
+    <a class="logoLink" href="<%= root_path %>">
+      <img class="abc_logo" src="<%= asset_url 'logo.png' %>"  alt="ABC Logo">
+    </a>
+
+<!--    <span style="float: right">-->
+      <%= link_to 'Book a table', boards_path, class: "navButton" %>
+      <%= link_to 'About us', about_path, class: "navButton" %>
+<!--    </span>-->
+  </header>
+
   <body>
     <div class="container">
       <%= yield %>

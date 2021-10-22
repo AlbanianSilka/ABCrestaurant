@@ -1,7 +1,5 @@
 <%= form_with(model: [@board, @booking.becomes(Booking)]) do |form| %>
   <div class="field">
-    <%= form.label :booked_table %>
-    <%= form.collection_select :board_id, Board.all, :id, :board_number, {}, { multiple: false } %>
     <%= form.label :booked_by %>
     <%= form.text_field :booked_by %>
     <%= form.label :booking_time%>
