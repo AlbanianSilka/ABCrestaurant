@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :bookings, shallow: true
   end
 
+  get 'about', to: "about#index"
   get 'welcome/index'
   root 'welcome#index'
 end
