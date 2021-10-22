@@ -1,5 +1,13 @@
 a.logoLink {
+  display: inline-block;
+  width: 150px;
+  height: 120px;
   color: inherit;
+}
+a.logoLink:hover {
+  background-color: grey;
+  transition: background-color 1s, 1s;
+  height: 120px;
 }
 a.navButton {
   border: none;
