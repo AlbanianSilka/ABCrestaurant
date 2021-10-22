@@ -17,8 +17,6 @@
       <td><%= board.board_number %></td>
       <td><%= board.board_seats %></td>
       <td><%= link_to 'Show', board %></td>
-      <td><%= link_to 'Edit', edit_board_path(board) %></td>
-      <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
    <% end %>
   </tbody>
@@ -29,5 +27,5 @@
 <% if Date.tomorrow.strftime('%A') == 'Sunday' %>
 <strong>We are closed on Sundays, sorry</strong>
   <% else %>
-<%= link_to 'New Board', new_board_path %>
+<%= link_to 'Back', root_path %>
 <% end %>
