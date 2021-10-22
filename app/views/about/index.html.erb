@@ -45,10 +45,16 @@
 <script>
   function initMap() {
       let abc_rest = {lat: 48.858057, lng: 2.288146};
+
       let map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 10, center: abc_rest}
+          document.getElementById('map'), {zoom: 12, center: abc_rest}
       );
+
       let marker = new google.maps.Marker({position: abc_rest, map: map})
+
+      google.maps.event.addListener(marker, 'click', function () {
+          window.location.href = 'https://goo.gl/maps/s8Bu8oRFns1zSiGXA'
+      })
   }
 </script>
 <script
