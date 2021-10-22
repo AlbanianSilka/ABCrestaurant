@@ -43,6 +43,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'letter_opener', '~> 1.7'
+  gem 'activeadmin', '~> 2.9'
+  gem 'devise', '~> 4.8'
+  gem 'inherited_resources', '~> 1.13'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
