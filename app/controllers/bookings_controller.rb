@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @board = Board.find(params[:board_id])
+    @booking.board_id = @board.id
 
     respond_to do |format|
       if @booking.save

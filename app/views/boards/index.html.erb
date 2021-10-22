@@ -26,4 +26,8 @@
 
 <br>
 
+<% if Date.tomorrow.strftime('%A') == 'Sunday' %>
+<strong>We are closed on Sundays, sorry</strong>
+  <% else %>
 <%= link_to 'New Board', new_board_path %>
+<% end %>
