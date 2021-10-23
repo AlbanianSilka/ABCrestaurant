@@ -1,13 +1,18 @@
 a.logoLink {
   display: inline-block;
-  width: 150px;
+  width: 120px;
   height: 120px;
+  transition: background-color 0.5s, 0.5s;
+  border-radius: 50%;
   color: inherit;
 }
 a.logoLink:hover {
   background-color: grey;
   transition: background-color 1s, 1s;
+  text-align: center;
+  border-radius: 50%;
   height: 120px;
+  width: 120px;
 }
 a.navButton {
   border: none;
@@ -35,6 +40,7 @@ a.navButton:hover {
 
 .abc_logo {
   position: relative;
+  left: -18px;
   top: -10px;
   width: 150px;
 }
