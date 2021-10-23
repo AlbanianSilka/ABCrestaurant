@@ -17,8 +17,13 @@ class DaytimeService
 
     graph_time.each do |el|
       while minute < 60
-        graph_all.push("#{el}" ":" "#{minute}")
-        minute += 15
+        if minute == 0
+          graph_all.push("#{el}" ":" "#{minute}0")
+          minute += 15
+        else
+          graph_all.push("#{el}" ":" "#{minute}")
+          minute += 15
+        end
       end
       if minute == 60
         minute = 0
