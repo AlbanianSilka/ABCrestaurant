@@ -1,0 +1,8 @@
+<div class="dish_info">
+  <h1><%= dish.dish_name %></h1>
+  <p class="dish_desc"><%= dish.description %></p>
+  <h2>Price: <%= dish.dish_price %>€</h2>
+</div>
+<div class="dish_photo">
+  <img class="dish_img" src="<%= url_for(dish.dish_photo) %>" alt="photo">
+</div>

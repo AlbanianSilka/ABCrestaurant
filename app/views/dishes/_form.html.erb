@@ -1,0 +1,30 @@
+<%= form_with(model: dish) do |form| %>
+  <div class="field">
+    <p>
+      <%= form.label :dish_name %>
+    </p>
+    <%= form.text_field :dish_name %>
+    <p>
+      <%= form.label :dish_price%> in €
+    </p>
+    <%= form.number_field :dish_price %>
+    <% category_list = %w[Alcohol Salad Soup Hot] %>
+    <p>
+      <%= form.label :category %>
+    </p>
+    <%= form.collection_select :category, category_list, :to_s, :to_s, include_blank: false %>
+    <p>
+      <%= form.label :description %>
+    </p>
+    <%= form.text_field :description %>
+    <p>
+      <%= form.label :dish_photo %>
+    </p>
+    <%= form.file_field :dish_photo %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
