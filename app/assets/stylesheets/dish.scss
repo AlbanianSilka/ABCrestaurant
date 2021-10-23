@@ -1,0 +1,27 @@
+// Place all the styles related to the Dish controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.category_name {
+  text-align: center;
+}
+
+.dish_img {
+  margin-top: 20px;
+ width: 350px;
+  height: 350px;
+}
+
+.dish_info {
+  text-align: center;
+  position: relative;
+  top: 100px;
+}
+
+
+.dish_desc {
+  display: inline-block;
+  overflow-wrap: break-word;
+  width: 500px;
+  font-style: italic;
+}
