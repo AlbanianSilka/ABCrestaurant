@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .category_name {
-  text-align: center;
+  display: block;
 }
 
 .dish_img {
   margin-top: 20px;
- width: 350px;
+  width: 350px;
   height: 350px;
 }
 
@@ -20,8 +20,7 @@
 
 
 .dish_desc {
-  display: inline-block;
-  overflow-wrap: break-word;
-  width: 500px;
-  font-style: italic;
+  text-align: center;
+  margin-top: -50px;
+  margin-right: 350px;
 }
