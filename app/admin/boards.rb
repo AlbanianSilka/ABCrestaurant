@@ -1,5 +1,5 @@
 ActiveAdmin.register Board do
-  permit_params :board_number, :board_seats, :board_bookings, :booked
+  permit_params :board_number, :board_seats, :board_bookings, :booked, :floor
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

@@ -1,5 +1,5 @@
 ActiveAdmin.register Booking do
-  permit_params :board_id, :booked_by, :booking_time, :email
+  permit_params :board_id, :booked_by, :booking_time, :email, :order_comment
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
