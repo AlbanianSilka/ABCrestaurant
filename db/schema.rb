@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_23_172717) do
+ActiveRecord::Schema.define(version: 2021_10_24_175118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_10_23_172717) do
     t.boolean "booked", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "floor"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -83,7 +84,18 @@ ActiveRecord::Schema.define(version: 2021_10_23_172717) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "board_id"
     t.text "email"
+    t.text "order_comment"
+    t.string "ordered_dishes", default: [], array: true
     t.index ["board_id"], name: "index_bookings_on_board_id"
+  end
+
+  create_table "bookings_dishes", force: :cascade do |t|
+    t.bigint "booking_id"
+    t.bigint "dish_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_bookings_dishes_on_booking_id"
+    t.index ["dish_id"], name: "index_bookings_dishes_on_dish_id"
   end
 
   create_table "dishes", force: :cascade do |t|
