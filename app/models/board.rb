@@ -1,5 +1,5 @@
 class Board < ActiveRecord::Base
-  validates_presence_of :board_number, :board_seats
+  validates_presence_of :board_number, :board_seats, :floor
 
   has_many :bookings
 
