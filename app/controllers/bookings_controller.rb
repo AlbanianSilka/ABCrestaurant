@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
     respond_to do |format|
       if @booking.save
         BookingMailer.with(booking: @booking).booking_created.deliver_later
+        BookingJob.set(wait_until: @booking.created_at < 24.hours.ago).perform_later(@booking)
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
         @board.booked = true
@@ -36,7 +37,6 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        BookingJob.set(wait_until: @booking.created_at < 24.hours.ago).perform_later(@booking)
         format.html { redirect_to board_bookings_path, notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
       else
@@ -61,6 +61,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:board_id, :booked_by, :booking_time, :email)
+    params.require(:booking).permit(:board_id, :booked_by, :booking_time, :email, :order_comment)
   end
 end
