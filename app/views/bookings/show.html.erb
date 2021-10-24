@@ -9,9 +9,16 @@
   <%= @booking.booked_by %>
 </p>
 <p>
-  <strong>Start time: </strong>
+  <strong>Booked for: </strong>
   <%= @booking.booking_time %>
 </p>
+<% if @booking.order_comment.present? %>
+  <p>
+    <strong>Order comment: </strong>
+    <%= @booking.order_comment %>
+  </p>
+<% end %>
+<p>
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', boards_path %>
