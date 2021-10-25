@@ -1,0 +1,29 @@
+.btn_floor {
+  transition: box-shadow .3s;
+  background-image: none;
+  background-color: #00668b;
+}
+
+.btn_floor:hover {
+  background-color: #00668b !important;
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.booked_table {
+  box-sizing: border-box;
+  width: 5%;
+  background-color: black;
+  color: #ffffff;
+}
+
+#first_floor {
+
+}
+
+#second_floor {
+  display: none;
+}
+
+#third_floor {
+  display: none;
+}
