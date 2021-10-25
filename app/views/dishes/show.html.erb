@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>The dish:</strong>
+  <%= @dish.dish_name %>
+</p>
+<p>
+  <strong>Price: </strong>
+  <%= @dish.dish_price %>€
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @dish.description %>
+</p>
+<p>
+  <strong>Photo: </strong>
+  <img src="<%=(url_for(@dish.dish_photo)) %>" alt="photo">
+</p>
+
+<%= link_to 'Edit', edit_dish_path(@dish) %> |
+<%= link_to 'Back', dishes_path %>

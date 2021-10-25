@@ -1,9 +1,17 @@
 <%= form_with(model: board) do |form| %>
   <div class="field">
-    <%= form.label :board_number %>
+    <p>
+      <%= form.label :board_number %>
+    </p>
     <%= form.text_field :board_number %>
-    <%= form.label :board_seats %>
+    <p>
+      <%= form.label :board_seats %>
+    </p>
     <%= form.text_field :board_seats %>
+    <p>
+      <%= form.label :floor %>
+    </p>
+    <%= form.number_field :floor %>
   </div>
 
   <div class="actions">

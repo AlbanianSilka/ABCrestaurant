@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dishes</h1>
+
+<table>
+  <tbody>
+  <div class="menu_list">
+    <h1 class="category_name">Soups</h1>
+    <% Dish.where(category: 'Soup').each do |dish| %>
+      <%= render dish, dish: dish %>
+    <% end %>
+
+    <h1 class="category_name">Hot dishes</h1>
+    <% Dish.where(category: 'Hot').each do |dish| %>
+      <%= render dish, dish: dish %>
+    <% end %>
+
+    <h1 class="category_name">Salads</h1>
+    <% Dish.where(category: 'Salad').each do |dish| %>
+      <%= render dish, dish: dish %>
+    <% end %>
+
+    <h1 class="category_name">Alcohol</h1>
+    <% Dish.where(category: 'Alcohol').each do |dish| %>
+      <%= render dish, dish: dish %>
+    <% end %>
+  </div>
+  </tbody>
+</table>
+
+<br>

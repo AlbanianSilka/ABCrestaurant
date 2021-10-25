@@ -54,7 +54,7 @@ class BoardsController < ApplicationController
   end
 
   def board_params
-    params.require(:board).permit(:board_number, :board_seats, :board_bookings)
+    params.require(:board).permit(:board_number, :board_seats, :board_bookings, :booked, :floor)
   end
 
 end

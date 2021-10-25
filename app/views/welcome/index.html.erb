@@ -1,4 +1,9 @@
-<h1>Welcome page</h1>
+<style>
+  body {
+      background: url('<%= asset_url 'welcome_background.jpg' %>');
+      background-size: cover;
+  }
+</style>
+<img src="<%= asset_url 'welcome.png' %>" alt="Welcome" id="welcome_sign">
+<%= link_to 'About us', about_path, class: "aboutButton"%>
 
-<%= link_to 'Boards', boards_path %>
-<%= link_to 'Booking', bookings_path %>

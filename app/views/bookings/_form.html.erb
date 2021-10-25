@@ -1,13 +1,63 @@
-<%= form_with(model: booking) do |form| %>
+<%= form_with(model: [@board, @booking.becomes(Booking)]) do |form| %>
   <div class="field">
-    <%= form.label :booked_table %>
-    <%= form.collection_select :board_id, Board.all, :id, :board_number, {}, { multiple: false } %>
-    <%= form.label :booked_by %>
-    <%= form.text_field :booked_by %>
-    <%= form.label :start_time%>
-    <%= form.datetime_field :start_time%>
-    <%= form.label :end_time %>
-    <%= form.datetime_field :end_time%>
+    <p>
+      <%= form.label :booked_by %>
+    </p>
+    <%= form.text_field :booked_by, placeholder: 'Enter your first and last name' %>
+    <p>
+      <%= form.label :booking_time%>
+    </p>
+    <% daytime = DaytimeService.new(@booking).create_workday(10, 22) %>
+    <%= form.collection_select :booking_time, daytime, :to_s, :to_s, include_blank: false %>
+    <p>
+      <%= form.label :email %>
+    </p>
+    <%= form.text_field :email %>
+    <p>
+      Add comment?
+      <input class="comment_check" type="checkbox" name="Add order comment" value="0" onchange="show_comment()">
+    </p>
+    <script>
+      function show_comment () {
+          if($('.comment_check').is(":checked"))
+              $("#comment_box").show();
+          else
+              $("#comment_box").hide();
+              $(".dish_box").hide();
+              $(".menu_check").prop("checked", false)
+      }
+    </script>
+    <div id="comment_box">
+      <p>
+        <%= form.label :order_comment %>
+      </p>
+      <%= form.text_field :order_comment, placeholder: 'Write comment to your order, if you have any' %>
+      <p>
+        Show menu?
+        <input class="menu_check" type="checkbox" name="Add order comment" value="0" onchange="show_menu()">
+      </p>
+    </div>
+
+    <div class="dish_box">
+      <% all_dishes = Dish.all %>
+      <% all_dishes.each do |dish| %>
+        <div class="booked_images">
+          <div class="book_dish_info">
+            <%= dish.dish_name %>
+            <p>Price: <%= dish.dish_price %>€</p>
+          </div>
+          <img class="book_dish_img" src="<%= url_for(dish.dish_photo) %>" alt="photo">
+        </div>
+      <% end %>
+    </div>
+    <script>
+        function show_menu () {
+            if($('.menu_check').is(":checked"))
+                $(".dish_box").show();
+            else
+                $(".dish_box").hide();
+        }
+    </script>
   </div>
 
 

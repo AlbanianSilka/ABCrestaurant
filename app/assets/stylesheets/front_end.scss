@@ -1,0 +1,139 @@
+a.logoLink {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  transition: background-color 0.5s, 0.5s;
+  border-radius: 50%;
+  color: inherit;
+}
+a.logoLink:hover {
+  background-color: grey;
+  transition: background-color 1s, 1s;
+  text-align: center;
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+}
+a.navButton {
+  border: none;
+  color: white;
+  padding: 7px 14px;
+  border-radius: 1000px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+a.navButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.abc_header {
+  background-color: #2E2F30;
+  height: 120px;
+}
+
+.abc_logo {
+  position: relative;
+  left: -18px;
+  top: -10px;
+  width: 150px;
+}
+
+.info_main {
+  position: relative;
+  top: 10px;
+  text-align: center;
+  font-family: 'Noto Serif Ahom', serif;
+}
+
+#about_main {
+  text-align: center;
+}
+
+.ratatouille_photo {
+  position: relative;
+  top: 30px;
+  left: 10px;
+  width: 400px;
+  height: 600px;
+}
+#menu_info {
+  text-align: center;
+  position: relative;
+  top: 200px;
+  .h2_rest {
+    text-decoration: underline;
+  }
+  text-decoration: underline;
+}
+
+.btn_brand {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+  line-height: 2;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.btn_brand:hover {
+  background-color: #bbccc9;
+  transition: background-color 1s, 1s;
+}
+
+#history_info {
+  text-align: center;
+  position: relative;
+  top: 60px;
+}
+
+.creme {
+  position: relative;
+  bottom: 50px;
+  left: 800px;
+  width: 500px;
+  height: 500px;
+}
+
+#map_info {
+  text-align: center;
+  position: relative;
+  top: 50px;
+}
+
+#welcome_sign {
+  display: block;
+  text-align: center;
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a.aboutButton {
+  border: none;
+  color: white;
+  background-color: black;
+  padding: 7px 14px;
+  border-radius: 10%;
+  text-align: center;
+  margin-left: 585px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.aboutButton:hover {
+  background-color: #325357;
+  color: white;
+}

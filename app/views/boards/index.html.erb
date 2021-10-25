@@ -2,28 +2,96 @@
 
 <h1>Boards</h1>
 
-<table>
-  <thead>
-    <tr>
-     <th>Number</th>
-      <th>Seats</th>
-     <th colspan="3"></th>
-    </tr>
-  </thead>
-  
-  <tbody>
-   <% @boards.each do |board| %>
-    <tr>
-      <td><%= board.board_number %></td>
-      <td><%= board.board_seats %></td>
-      <td><%= link_to 'Show', board %></td>
-      <td><%= link_to 'Edit', edit_board_path(board) %></td>
-      <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-   <% end %>
-  </tbody>
-</table>
+ <div>
+  <div id="first_floor">
+    <% first_floor = Board.where(floor: 1) %>
+    <% first_floor.each do |board| %>
+      <tr>
+        <p>
+          Table places:
+        <td><%= board.board_seats %></td>
+        <% if board.booked? %>
+          <h6 class="booked_table">Already booked</h6>
+        <% else %>
+          <div class="new_booking">
+            <%= link_to 'Book a table', board %>
+          </div>
+        <% end %>
+      </tr>
+    <% end %>
+  </div>
+
+  <div id="second_floor">
+    <tbody>
+    <% second_floor = Board.where(floor: 2) %>
+    <% second_floor.each do |board| %>
+      <tr>
+        <p>
+          Table places:
+        <td><%= board.board_seats %></td>
+        <% if board.booked? %>
+          <h6 class="booked_table">Already booked</h6>
+        <% else %>
+          <div class="new_booking">
+            <%= link_to 'Book a table', board %>
+          </div>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </div>
+
+  <div id="third_floor">
+    <tbody>
+    <% third_floor = Board.where(floor: 3) %>
+    <% third_floor.each do |board| %>
+      <tr>
+        <p>
+        Table places:
+        <td><%= board.board_seats %></td>
+        <% if board.booked? %>
+          <h6 class="booked_table">Already booked</h6>
+          <% else %>
+          <div class="new_booking">
+            <%= link_to 'Book a table', board %>
+          </div>
+          <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </div>
+ </div>
+
+<script>
+  function select_floor(floor_id) {
+      if(floor_id === 'floor1'){
+          $("#first_floor").show();
+          $("#second_floor").hide();
+          $("#third_floor").hide();
+      }
+      if(floor_id === 'floor2'){
+          $("#second_floor").show();
+          $("#first_floor").hide();
+          $("#third_floor").hide();
+      }
+      if(floor_id === 'floor3'){
+          $("#third_floor").show();
+          $("#second_floor").hide();
+          $("#first_floor").hide();
+      }
+  }
+</script>
+<div id="floor_buttons">
+  <button class="btn_floor" id="floor1" onclick="select_floor(this.id)">Floor 1</button>
+  <button class="btn_floor" id="floor2" onclick="select_floor(this.id)">Floor 2</button>
+  <button class="btn_floor" id="floor3" onclick="select_floor(this.id)">Floor 3</button>
+</div>
+
 
 <br>
 
-<%= link_to 'New Board', new_board_path %>
+<% if Date.tomorrow.strftime('%A') == 'Sunday' %>
+<strong>We are closed on Sundays, sorry</strong>
+  <% else %>
+<%= link_to 'Back', root_path %>
+<% end %>
