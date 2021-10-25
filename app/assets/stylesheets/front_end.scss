@@ -109,3 +109,31 @@ a.navButton:hover {
   position: relative;
   top: 50px;
 }
+
+#welcome_sign {
+  display: block;
+  text-align: center;
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a.aboutButton {
+  border: none;
+  color: white;
+  background-color: black;
+  padding: 7px 14px;
+  border-radius: 10%;
+  text-align: center;
+  margin-left: 585px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.aboutButton:hover {
+  background-color: #325357;
+  color: white;
+}
