@@ -50,6 +50,7 @@ group :development do
   gem 'inherited_resources', '~> 1.13'
   # gem to create attached file for dish
   gem 'activestorage', '~> 6.1', '>= 6.1.4.1'
+  gem 'faker', '~> 2.19'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
